@@ -3,7 +3,7 @@ import Jobs from "@/components/jobs";
 import MovingBar from "@/components/movingBar";
  function Home() {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-hidden">
       <Hero />
       <MovingBar />
       <Jobs />
