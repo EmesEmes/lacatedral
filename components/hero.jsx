@@ -53,7 +53,7 @@ const Hero = () => {
       {/* Menú */}
       <div
         ref={menuRef}
-        className="fixed top-0 left-0 w-full p-6 bg-black bg-opacity-80 opacity-0 -translate-y-full "
+        className="fixed top-0 left-0 w-full p-6 bg-black bg-opacity-80 opacity-0 -translate-y-full z-10"
       >
         <div className="flex justify-between items-center container mx-auto">
         <div>
