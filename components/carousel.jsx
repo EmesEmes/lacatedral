@@ -4,14 +4,15 @@ import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import BlurText from "./blurText"
 
 const images = [
-  { src: "/images/tattoos/marlon/1.webp", alt: "Apple product 1" },
-  { src: "/images/tattoos/marlon/2.webp", alt: "Apple product 2" },
-  { src: "/images/tattoos/marlon/3.webp", alt: "Apple product 3" },
-  { src: "/images/tattoos/marlon/4.webp", alt: "Apple product 4" },
-  { src: "/images/tattoos/marlon/5.webp", alt: "Apple product 5" },
-  { src: "/images/tattoos/marlon/6.webp", alt: "Apple product 6" },
+  { src: "/images/tattoos/marlon/1.webp", alt: "Apple product 1", artist: "Marlon", style: "Neotradicional"},
+  { src: "/images/tattoos/marlon/2.webp", alt: "Apple product 2", artist: "Marlon", style: "Neotradicional"},
+  { src: "/images/tattoos/marlon/3.webp", alt: "Apple product 3", artist: "Marlon", style: "Neotradicional"},
+  { src: "/images/tattoos/marlon/4.webp", alt: "Apple product 4", artist: "Marlon", style: "Neotradicional"},
+  { src: "/images/tattoos/marlon/5.webp", alt: "Apple product 5", artist: "Marlon", style: "Neotradicional"},
+  { src: "/images/tattoos/marlon/6.webp", alt: "Apple product 6", artist: "Marlon", style: "Neotradicional"},
 ]
 
 export default function AppleCarousel() {
@@ -46,8 +47,14 @@ export default function AppleCarousel() {
   }, [goToNext])
 
   return (
-    <div className="relative w-full px-4 py-8">
-      <h2 className="text-white text-center text-5xl mb-10">Algunos de nuestros trabajos favoritos</h2>
+    <div className="relative w-full px-4 py-8 my-10">
+      <BlurText
+        text="ALGUNOS DE NUESTROS TRABAJOS FAVORITOS"
+        delay={50}
+        animateBy="words"
+        direction="top"
+        className="text-5xl mb-10 text-center text-white"
+      />
       <Carousel
         setApi={setApi}
         opts={{
@@ -68,7 +75,10 @@ export default function AppleCarousel() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   priority={index < 3}
                 />
+                
               </div>
+              <p className="text-white mt-4 text-2xl">{image.artist}</p>
+              <p className="text-white">{image.style}</p>
             </CarouselItem>
           ))}
         </CarouselContent>
